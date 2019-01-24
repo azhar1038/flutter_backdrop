@@ -1,6 +1,7 @@
 # flutter_backdrop
 
 A Package for using Backdrop widget in Flutter
+This allows you to use Backdrop easily just like a normal widget.
 
 ## Getting Started
 

@@ -1,3 +1,3 @@
-## [0.0.1] - TODO: Add release date.
+## [0.0.1] - 24/01/2019
 
-* TODO: Describe initial release.
+* This is a package which allows you to implement Backdrop Widget easily
