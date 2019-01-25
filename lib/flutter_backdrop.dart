@@ -2,11 +2,11 @@ library flutter_backdrop;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_backdrop/backdrop_panel.dart';
+import 'dart:async';
 
 const _flingVelocity = 2.0;
 
 class Backdrop extends StatefulWidget {
-
   //----------------------Front and Back Panel properties-----------------------
 
   /// This is the front panel which will contain the main body.
@@ -45,6 +45,11 @@ class Backdrop extends StatefulWidget {
   /// If false [backPanel] will be visible.
   final bool panelVisibleInitially;
 
+  /// If true it will toggle the position of your [frontLayer].
+  ///
+  /// Initially keep it false. Then make it true on Selecting any Menu item in [backLayer].
+  final bool toggleFrontLayer;
+
   //------------------------Appbar properties-----------------------------
 
   /// Non-animated Leading menu icon. Should be [IconData].
@@ -57,8 +62,10 @@ class Backdrop extends StatefulWidget {
 
   /// Controls whether we should try to imply the leading widget if null.
   ///
-  /// If true and [leading] is null, automatically try to deduce what the leading
-  /// widget should be. If false and [leading] is null, leading space is given to [title].
+  /// If true and [appBarAnimatedLeadingMenuIcon] or [appBarLeadingMenuIcon] is null,
+  /// automatically try to deduce what the leading widget should be.
+  /// If false and [appBarAnimatedLeadingMenuIcon] or [appBarLeadingMenuIcon] is null,
+  /// leading space is given to [appBarTitle].
   /// If leading widget is not null, this parameter has no effect.
   final bool appBarAutomaticallyImplyLeading;
 
@@ -68,7 +75,7 @@ class Backdrop extends StatefulWidget {
   /// of the app.
   final Widget appBarTitle;
 
-  /// Widgets to display after the [title] widget.
+  /// Widgets to display after the [appBarTitle] widget.
   ///
   /// Typically these widgets are [IconButton]s representing common operations.
   /// For less common operations, consider using a [PopupMenuButton] as the
@@ -76,41 +83,38 @@ class Backdrop extends StatefulWidget {
   ///
   /// {@tool snippet --template=stateless_widget}
   ///
-  /// This sample shows adding an action to an [AppBar] that opens a shopping cart.
+  /// This sample shows adding an action to the appBar of your [Backdrop] that opens a shopping cart.
   ///
   /// ```dart
-  /// Scaffold(
-  ///   appBar: AppBar(
-  ///     title: Text('Hello World'),
-  ///     actions: <Widget>[
-  ///       IconButton(
-  ///         icon: Icon(Icons.shopping_cart),
-  ///         tooltip: 'Open shopping cart',
-  ///         onPressed: () {
-  ///           // ...
-  ///         },
-  ///       ),
-  ///     ],
-  ///   ),
-  /// )
+  /// Backdrop(
+  ///   appBarActions: <Widget>[
+  ///     IconButton(
+  ///       icon: Icon(Icons.shopping_cart),
+  ///       tooltip: 'Open shopping cart',
+  ///       onPressed: () {
+  ///         // ...
+  ///       },
+  ///     ),
+  ///   ],
+  /// ),
   /// ```
   /// {@end-tool}
   final List<Widget> appBarActions;
 
   /// The color to use for the app bar's material. Typically this should be set
-  /// along with [brightness], [iconTheme], [textTheme].
+  /// along with [appBarIconTheme], [appBarTextTheme].
   ///
   /// Defaults to [ThemeData.primaryColor].
   final Color appBarBackgroundColor;
 
   /// The color, opacity, and size to use for app bar icons. Typically this
-  /// is set along with [backgroundColor], [brightness], [textTheme].
+  /// is set along with [appBarBackgroundColor], [appBarTextTheme].
   ///
   /// Defaults to [ThemeData.primaryIconTheme].
   final IconThemeData appBarIconTheme;
 
   /// The typographic styles to use for text in the app bar. Typically this is
-  /// set along with [brightness] [backgroundColor], [iconTheme].
+  /// set along with [appBarBackgroundColor], [appBarIconTheme].
   ///
   /// Defaults to [ThemeData.primaryTextTheme].
   final TextTheme appBarTextTheme;
@@ -120,9 +124,9 @@ class Backdrop extends StatefulWidget {
   /// Defaults to being adapted to the current [TargetPlatform].
   final bool appBarCenterTitle;
 
-  /// The spacing around [title] content on the horizontal axis. This spacing is
-  /// applied even if there is no [leading] content or [actions]. If you want
-  /// [title] to take all the space available, set this value to 0.0.
+  /// The spacing around [appBarTitle] content on the horizontal axis. This spacing is
+  /// applied even if there is no leading content or trailing actions. If you want
+  /// [appBarTitle] to take all the space available, set this value to 0.0.
   ///
   /// Defaults to [NavigationToolbar.kMiddleSpacing].
   final double appBarTitleSpacing;
@@ -136,7 +140,8 @@ class Backdrop extends StatefulWidget {
     this.frontHeaderHeight = 48.0,
     this.titleVisibleOnPanelClosed = true,
     this.frontPanelPadding = EdgeInsets.zero,
-    this.panelVisibleInitially,
+    this.panelVisibleInitially = true,
+    this.toggleFrontLayer = false,
 
     //--------Appbar properties------------
     this.appBarLeadingMenuIcon,
@@ -166,6 +171,9 @@ class _BackdropState extends State<Backdrop>
   bool isPanelVisible;
   final _backDropKey = GlobalKey(debugLabel: 'Backdrop');
   AnimationController _controller;
+  bool test;
+
+  _BackdropState({this.test = false});
 
   @override
   void initState() {
@@ -184,7 +192,7 @@ class _BackdropState extends State<Backdrop>
 
   bool get _backdropPanelVisible =>
       _controller.status == AnimationStatus.completed ||
-          _controller.status == AnimationStatus.forward;
+      _controller.status == AnimationStatus.forward;
 
   void _toggleBackdropPanelVisibility() => _controller.fling(
       velocity: _backdropPanelVisible ? -_flingVelocity : _flingVelocity);
@@ -238,17 +246,24 @@ class _BackdropState extends State<Backdrop>
       return null;
   }
 
+  _waitBeforeToggle() async {
+    await Future.delayed(const Duration(milliseconds: 100), () {
+      print('Inside testing()');
+      _toggleBackdropPanelVisibility();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    if(widget.toggleFrontLayer) _waitBeforeToggle();
     return LayoutBuilder(
       builder: (context, constraints) {
         final panelSize = constraints.biggest;
-        print(panelSize.height);
         final closedPercentage = widget.titleVisibleOnPanelClosed
             ? (panelSize.height - widget.frontHeaderHeight) / panelSize.height
             : 1.0;
         final panelDetailsPosition = Tween<Offset>(
-            begin: Offset(0.0, closedPercentage), end: Offset(0.0, 0.0))
+                begin: Offset(0.0, closedPercentage), end: Offset(0.0, 0.0))
             .animate(_controller.view);
 
         return Scaffold(

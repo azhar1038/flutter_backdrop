@@ -1,7 +1,6 @@
 # flutter_backdrop
 
-A Package for using Backdrop widget in Flutter
-This allows you to use Backdrop easily just like a normal widget.
+This package is used for implementing Backdrop widget in Flutter easily. You can add properties like borderRadius, shape, frontHeaderHeight, titleVisibleOnPanelClosed, panelVisibleInitially, toggleFrontLayer, appBarAnimatedLeadingMenuIcon and a few others directly without much effort.
 
 ## Getting Started
 

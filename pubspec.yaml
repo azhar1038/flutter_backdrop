@@ -1,6 +1,6 @@
 name: flutter_backdrop
-description: A Package for using Backdrop widget in Flutter
-version: 0.0.1
+description: This package is used for implementing Backdrop widget in Flutter easily. You can add properties like borderRadius, shape, frontHeaderHeight, titleVisibleOnPanelClosed, panelVisibleInitially, toggleFrontLayer, appBarAnimatedLeadingMenuIcon and a few others directly without much effort.
+version: 1.0.0
 author: Md.Azharuddin<mdazharuddin1011999@gmail.com>
 homepage: https://github.com/mdazharuddin1011999/flutter_backdrop
 
@@ -10,6 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  scoped_model: ^1.0.1
 
 dev_dependencies:
   flutter_test:
