@@ -1,5 +1,5 @@
 name: flutter_backdrop
-description: This package is used for implementing Backdrop easily. You can add properties like borderRadius, shape, frontHeaderHeight, titleVisibleOnPanelClosed, appBarAnimatedLeadingMenuIcon and a few others directly without much effort.
+description: This package is used for implementing Backdrop easily. You can add properties like borderRadius, shape etc. without much effort.
 version: 1.0.1
 author: Md.Azharuddin<mdazharuddin1011999@gmail.com>
 homepage: https://github.com/mdazharuddin1011999/flutter_backdrop
