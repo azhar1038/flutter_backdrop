@@ -35,11 +35,11 @@ Refer to the example to create something like this:
 
 Or modify the borderRadius property to get this:
 
-[Circular Border](/images/circular.png)
+![Circular Border](https://github.com/mdazharuddin1011999/flutter_backdrop/tree/master/images/circular.png)
 
 Or modify titleVisibleOnPanelClosed property to get this:
 
-[Title visible](/images/title.png) or [Title not visible](/images/noTitle.png)
+![Title visible](https://github.com/mdazharuddin1011999/flutter_backdrop/tree/master/images/title.png) or ![Title not visible](https://github.com/mdazharuddin1011999/flutter_backdrop/tree/master/images/noTitle.png)
 
 ## Getting Started
 
