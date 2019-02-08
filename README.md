@@ -31,7 +31,7 @@ Each property has been defined in package.
 
 Refer to the example to create something like this: 
 
-[Result of example](https://github.com/mdazharuddin1011999/flutter_backdrop/tree/master/images/demo.gif)
+![Result of example](https://github.com/mdazharuddin1011999/flutter_backdrop/tree/master/images/demo.gif)
 
 Or modify the borderRadius property to get this:
 
