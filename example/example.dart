@@ -34,18 +34,19 @@ class _HomePageState extends State<HomePage> {
       model: FrontPanelModel(FrontPanels.panelOne),
       child: ScopedModelDescendant<FrontPanelModel>(
         builder: (context, _, model) => Backdrop(
-              appBarAnimatedLeadingMenuIcon: AnimatedIcons.close_menu,
-              appBarTitle: Text('Backdrop'),
-              backLayer: BackPanel(),
-              toggleFrontLayer: _toggleFrontLayer,
-              frontLayer: model.activePanel,
-              frontHeader: model.panelTitle(context),
-              frontHeaderHeight: 35.0,
-              shape: BeveledRectangleBorder(
-                  borderRadius: BorderRadius.only(
+          appBarAnimatedLeadingMenuIcon: AnimatedIcons.close_menu,
+          appBarTitle: Text('Backdrop'),
+          backLayer: BackPanel(),
+          toggleFrontLayer: _toggleFrontLayer,
+          frontLayer: model.activePanel,
+          frontHeader: model.panelTitle(context),
+          frontHeaderHeight: 35.0,
+          titleVisibleOnPanelClosed: true,
+          shape: BeveledRectangleBorder(
+              borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(35.0),
               )),
-            ),
+        ),
       ),
     );
   }
@@ -153,6 +154,7 @@ class _BackPanelState extends State<BackPanel> {
                 );
               },
             ),
+
           ],
         ),
       ),

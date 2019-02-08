@@ -1,6 +1,45 @@
 # flutter_backdrop
 
-This package is used for implementing Backdrop widget in Flutter easily. You can add properties like borderRadius, shape, frontHeaderHeight, titleVisibleOnPanelClosed, panelVisibleInitially, toggleFrontLayer, appBarAnimatedLeadingMenuIcon and a few others directly without much effort.
+This package is used for implementing Backdrop widget in Flutter easily.
+
+You can add properties like-
+
+* frontLayer
+* backLayer
+* frontHeader
+* borderRadius
+* shape
+* frontHeaderHeight
+* titleVisibleOnPanelClosed
+* frontPanelPadding
+* panelVisibleInitially
+* toggleFrontLayer
+* appBarLeadingMenuIcon,
+* appBarAnimatedLeadingMenuIcon,
+* appBarAutomaticallyImplyLeading = true,
+* appBarTitle,
+* appBarActions,
+* appBarBackgroundColor,
+* appBarIconTheme,
+* appBarTextTheme,
+* appBarCenterTitle,
+* appBarTitleSpacing
+
+to manipulate the backdrop easily.
+
+Each property has been defined in package.
+
+Refer to the example to create something like this: 
+
+[Result of example](/images/demo.gif)
+
+Or modify the borderRadius property to get this:
+
+[Circular Border](/images/circular.png)
+
+Or modify titleVisibleOnPanelClosed property to get this:
+
+[Title visible](/images/title.png) or [Title not visible](/images/noTitle.png)
 
 ## Getting Started
 

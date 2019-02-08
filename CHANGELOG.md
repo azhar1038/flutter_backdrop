@@ -1,3 +1,11 @@
+## [1.0.2] - 08/02/2019
+
+* Modified to remove a redundant print statement and modified example.
+
+## [1.0.1] - 25/01/2019
+
+* Example has been added for reference. 
+
 ## [1.0.0] - 25/01/2019
 
 * More properties and stable release.

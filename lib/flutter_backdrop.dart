@@ -248,7 +248,6 @@ class _BackdropState extends State<Backdrop>
 
   _waitBeforeToggle() async {
     await Future.delayed(const Duration(milliseconds: 100), () {
-      print('Inside testing()');
       _toggleBackdropPanelVisibility();
     });
   }
