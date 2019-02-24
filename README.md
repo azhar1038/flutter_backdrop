@@ -14,15 +14,15 @@ You can add properties like-
 * frontPanelPadding
 * panelVisibleInitially
 * toggleFrontLayer
-* appBarLeadingMenuIcon,
-* appBarAnimatedLeadingMenuIcon,
-* appBarAutomaticallyImplyLeading = true,
-* appBarTitle,
-* appBarActions,
-* appBarBackgroundColor,
-* appBarIconTheme,
-* appBarTextTheme,
-* appBarCenterTitle,
+* appBarLeadingMenuIcon
+* appBarAnimatedLeadingMenuIcon
+* appBarAutomaticallyImplyLeading
+* appBarTitle
+* appBarActions
+* appBarBackgroundColor
+* appBarIconTheme
+* appBarTextTheme
+* appBarCenterTitle
 * appBarTitleSpacing
 
 to manipulate the backdrop easily.
