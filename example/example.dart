@@ -1,3 +1,4 @@
+// Example to demostrate the use of package.
 import 'package:flutter/material.dart';
 import 'package:flutter_backdrop/flutter_backdrop.dart';
 import 'package:scoped_model/scoped_model.dart';
