@@ -24,6 +24,7 @@ You can add properties like-
 * appBarTextTheme
 * appBarCenterTitle
 * appBarTitleSpacing
+* appBarElevation
 
 to manipulate the backdrop easily.
 
