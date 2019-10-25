@@ -131,6 +131,11 @@ class Backdrop extends StatefulWidget {
   /// Defaults to [NavigationToolbar.kMiddleSpacing].
   final double appBarTitleSpacing;
 
+  /// AppBar elevation.
+  ///
+  /// Defaults to 0.0.
+  final double appBarElevation;
+
   Backdrop({
     @required this.frontLayer,
     @required this.backLayer,
@@ -154,6 +159,7 @@ class Backdrop extends StatefulWidget {
     this.appBarTextTheme,
     this.appBarCenterTitle,
     this.appBarTitleSpacing = NavigationToolbar.kMiddleSpacing,
+    this.appBarElevation = 0.0,
   })  : assert(frontLayer != null),
         assert(appBarLeadingMenuIcon == null ||
             appBarAnimatedLeadingMenuIcon == null),
@@ -271,7 +277,7 @@ class _BackdropState extends State<Backdrop>
             automaticallyImplyLeading: widget.appBarAutomaticallyImplyLeading,
             title: widget.appBarTitle,
             actions: widget.appBarActions,
-            elevation: 0.0,
+            elevation: widget.appBarElevation,
             backgroundColor: widget.appBarBackgroundColor,
             iconTheme: widget.appBarIconTheme,
             textTheme: widget.appBarTextTheme,
