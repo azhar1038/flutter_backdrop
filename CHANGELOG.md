@@ -1,3 +1,7 @@
+## [1.0.4] - 30/10/2019
+
+* Added elevation property.
+
 ## [1.0.2] - 08/02/2019
 
 * Modified to remove a redundant print statement and modified example.

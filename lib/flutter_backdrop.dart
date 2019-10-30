@@ -131,9 +131,9 @@ class Backdrop extends StatefulWidget {
   /// Defaults to [NavigationToolbar.kMiddleSpacing].
   final double appBarTitleSpacing;
 
-  /// AppBar elevation.
-  ///
-  /// Defaults to 0.0.
+  /// AppBar elevation
+  /// 
+  /// Defaults to 0.0
   final double appBarElevation;
 
   Backdrop({

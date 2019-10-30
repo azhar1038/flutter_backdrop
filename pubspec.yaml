@@ -1,6 +1,6 @@
 name: flutter_backdrop
 description: This package is used for implementing Backdrop easily. You can add properties like borderRadius, shape and a few others directly without much effort.
-version: 1.0.2
+version: 1.0.4
 author: Md.Azharuddin<mdazharuddin1011999@gmail.com>
 homepage: https://github.com/mdazharuddin1011999/flutter_backdrop
 
