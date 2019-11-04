@@ -32,12 +32,15 @@ Each property has been defined in package.
 
 Refer to the example to create something like this: 
 
-[Result of example](https://github.com/mdazharuddin1011999/flutter_backdrop/tree/master/images/demo.gif)
+<img src="images/demo.gif" width="300"/>
 
 Or modify the borderRadius property to get this:
 
-[Circular Border](https://github.com/mdazharuddin1011999/flutter_backdrop/tree/master/images/circular.png)
+<img src="images/circular.png" width="300"/>
 
 Or modify titleVisibleOnPanelClosed property to get this:
 
-[Title visible](https://github.com/mdazharuddin1011999/flutter_backdrop/tree/master/images/title.png) or [Title not visible](https://github.com/mdazharuddin1011999/flutter_backdrop/tree/master/images/noTitle.png)
+|Title Visible | Title not visible|
+|--------------|------------------|
+|<img src="images/title.png" width="150"/>|<img src="images/noTitle.png" width="150"/>|
+
